@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 20th Birthday Moonbeam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&family=Dancing+Script:wght@700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f9f5f0;
+      color: #333;
+      line-height: 1.8;
+      background-image: url('https://www.transparenttextures.com/patterns/cream-paper.png');
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, #d4af37, #f5d033, #d4af37);
+    }
+
+    /* Header Styles */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      padding-top: 20px;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      color: #d4af37;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #555;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .gold-divider {
+      width: 100px;
+      height: 2px;
+      background-color: #d4af37;
+      margin: 0 auto 30px;
+    }
+
+    /* Content Styles */
+    .message-content {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      text-align: justify;
+      hyphens: auto;
+      padding: 0 10px;
+    }
+
+    .message-content p {
+      margin-bottom: 20px;
+    }
+
+    .drop-cap {
+      float: left;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      line-height: 0.8;
+      padding-right: 8px;
+      color: #d4af37;
+    }
+
+    /* Photo Containers */
+
+
+    .photo-frame {
+      border: 6px solid white;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      background: white;
+      margin: 0 auto;
+      max-width: 300px;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .photo-frame:hover img {
+      transform: scale(1.05);
+    }
+
+    .photo-caption {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      color: #666;
+      text-align: center;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    .vintage-frame {
+      border: 10px solid #f5f5f5;
+      border-image: url('https://www.transparenttextures.com/patterns/old-wall.png') 30 round;
+      padding: 4px;
+      background: white;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .polaroid-frame {
+      background: white;
+      padding: 10px 10px 40px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transform: rotate(-2deg);
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* Signature & Footer */
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: #d4af37;
+      text-align: right;
+      margin-top: 30px;
+      clear: both;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid #eee;
+      margin-top: 30px;
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 1000px;
+        padding: 40px;
+        margin: 40px auto;
+      }
+
+      h1 {
+        font-size: 4.5rem;
+      }
+
+      .subtitle {
+        font-size: 1.8rem;
+      }
+
+      .gold-divider {
+        width: 150px;
+        height: 3px;
+        margin-bottom: 40px;
+      }
+
+      .message-content {
+        font-size: 1.1rem;
+        padding: 0;
+      }
+
+      .drop-cap {
+        font-size: 4.5rem;
+      }
+
+
+      .photo-left {
+        float: left;
+        margin-left: 0;
+      }
+
+      .photo-right {
+        float: right;
+        margin-right: 0;
+      }
+
+      .polaroid-frame.right {
+        transform: rotate(2deg);
+      }
+    }
+
+    /* Floating Hearts Animation */
+    .floating-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 16px;
+      color: rgba(212, 175, 55, 0.5);
+      animation: float 10s linear infinite;
+      opacity: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .photo-blur {
+      width: 200px;
+      height: 200px;
+      min-width: 200px;
+      /* Prevent shrinking */
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      filter: blur(2px);
+      transition: all 0.5s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .photo-blur:hover {
+      filter: blur(0);
+      transform: scale(1.05);
+      border-radius: 15px;
+    }
+
+    .photo-blur img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="floating-hearts" id="hearts-container"></div>
+
+  <div class="container">
+    <header>
+      <h1>Happy 20th Birthday</h1>
+      <div class="subtitle">To the most extraordinary woman I know</div>
+      <div class="gold-divider"></div>
+    </header>
+
+    <div class="message-content">
+      <div class="inline-photo">
+        <div class="photo-blur">
+          <img src="photo_2024-04-27_13-11-21.jpg" alt="Beautiful you">
+        </div>
+        <span class="drop-cap">M</span>
+        <p>oonbeam, as you celebrate this magnificent milestone of 20 years, I find myself overwhelmed with
+          gratitude for every moment we've shared. Your 20th birthday marks not just the passage of time, but the
+          blossoming of the most beautiful soul I've ever known.</p>
+
+        <div class="inline-photo">
+          <div class="photo-frame vintage-frame">
+            <img src="photo_23_2025-03-29_18-09-44.jpg" alt="Beautiful you">
+          </div>
+          <div class="photo-caption">THE LAST DAYS OF 19</div>
+        </div>
+
+        <p>Mejemeriya St.mary sntewawek twewkachn yhen yahel sefto ezi dres enhedalen beye ftsum neber yalasebkut.Gods
+          plan honena balefew endalshiw bebzu melamed bebzu mekoraref ezi dersenal yaw yegna alama Planachnm eziga
+          bayhonm
+          st.mary bzu gize remedial alfen sle fresh course neber mnaweraw mnakdew yhen amet ezaga lemohon neber yakednew
+          gn eziga tegegntenal malefun abren endakeden wdketachnm ye gara hone hul gizem sasbew kemigermegn neger andu
+          esu
+          nw maryamn.</p>
+
+
+
+        <div class="inline-photo">
+          <div class="photo-frame">
+            <img src="photo_28_2025-03-29_18-09-44.jpg" alt="Adventure">
+          </div>
+          <div class="photo-caption"> </div>
+        </div>
+
+        <p>Abeka yetebalew ya friendship dream land ketele tenekere cherash makurefem jemersh sw yemayaskefaw yordanos
+          yemikefalet sw agegne ye freedom botam agegne idk wedefit anchi ga endemhonew manm ga yemhon aymeslegnm b/c ur
+          special for me selam alesh manye. BTW MOONBEAM ur nickname of my contact😁.</p>
+
+
+
+        <div class="inline-photo">
+          <div class="photo-frame">
+            <img src="photo_5_2025-03-29_18-09-44.jpg" alt="Adventure">
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <p>Today, on your 20th birthday, Ena manye anchi yemelata lij Happy birthday bemnm hunetawoch gizewoch west
+          endtdeberi endtkefi endtakorfi laderekut bemulu ykerta manye.anchin masdeber like endeatfto tefi new rasenm
+          yasdeber neber gn bewala mn gebagn in life lay andu sideber andegnaw asdesach mehon alebet or demo ykerta
+          teyaki
+          lezam nw yeteyekush.</p>
+
+        <div class="inline-photo">
+          <div class="photo-frame">
+            <img src="photo_34_2025-03-29_18-09-44.jpg" alt="Adventure">
+          </div>
+          <div class="photo-caption"></div>
+        </div>
+
+        <p>bedgame melkam ldet manye it is new life chapter for u teenagernet abktual now ur going to 30.demo endelmde
+          ke
+          20 buhala betam yrotal meselegn edme ena egzihabher kanchi gar yhun Yasebshiw bemulu ysaka,yenekashiw bemulu
+          ybarek,Yetemegneshiwen bego neger bemul Yasmrelesh,Abresh banchi Ydeset Ysak,Cute baby Weldesh sami,Edmen
+          ketena
+          gar atrefrfo ystesh,Lekum neger yabkash,Teselotocheshn Ysmash Bestemecheresham egziahbher ftsameshn yasamrew.
+        </p>
+
+        <div class="signature">your Donkey</div>
+      </div>
+
+      <footer>
+        <p>Created with jordan for your 20th birthday • © 2025</p>
+      </footer>
+    </div>
+
+    <script>
+      // Create floating hearts
+      function createHearts() {
+        const heartsContainer = document.getElementById('hearts-container');
+        const heartCount = 20;
+
+        for (let i = 0; i < heartCount; i++) {
+          const heart = document.createElement('div');
+          heart.innerHTML = '❤';
+          heart.classList.add('heart');
+
+          // Random position and animation delay
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.animationDuration = 5 + Math.random() * 10 + 's';
+          heart.style.animationDelay = Math.random() * 5 + 's';
+
+          heartsContainer.appendChild(heart);
+        }
+      }
+
+      // Initialize effects
+      window.addEventListener('DOMContentLoaded', () => {
+        createHearts();
+      });
+    </script>
+</body>
+
+</html>
